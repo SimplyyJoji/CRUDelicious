@@ -1,0 +1,27 @@
+@model Dishes
+
+<h1 class="tect-center">Add a Dish Below<h1>
+<form asp-action="New" asp-controller="Home" method="POST">
+<span asp-validation-for="Name" class="text-danger font-weight-bold"></span>  
+    <label class="form-label" asp-for="Name"></label>
+    <input class="form-text mb-2" asp-for="Name">
+    <span asp-validation-for="ChefName" class="text-danger font-weight-bold"></span>
+    <label class="form-label" asp-for="ChefName"></label>
+    <input class="form-text mb-2" asp-for="ChefName">
+    <span asp-validation-for="Tastiness" class="text-danger font-weight-bold"></span>
+    <label class="form-label" asp-for="Tastiness"></label>
+    <select asp-for="Tastiness">
+        <option value=1>1</option>
+        <option value=2>2</option>
+        <option value=3>3</option>
+        <option value=4>4</option>
+        <option value=5>5</option>
+        </select>
+    <span asp-validation-for="Calories" class="text-danger font-weight-bold"></span>
+    <label class="form-label" asp-for="Calories"></label>
+    <input class="form-text mb-2" asp-for="Calories">
+    <span asp-validation-for="Discription" class="text-danger font-weight-bold"></span>
+    <label class="form-label" asp-for="Discription"></label>
+    <input asp-for="Discription"class="form-text mb-2" >
+    <Button value="Add User" type="submit">Add Dish </Button>    
+</form>

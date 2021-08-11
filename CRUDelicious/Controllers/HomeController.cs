@@ -15,7 +15,7 @@ namespace CRUDelicious.Controllers
         private readonly ILogger<HomeController> _logger;
 
         private MyContext dbContext;
- 
+
         public HomeController(MyContext context)
         {
             dbContext = context;
@@ -24,17 +24,50 @@ namespace CRUDelicious.Controllers
             [HttpGet("")]
             
         public IActionResult Index()
-        {
-    //         // Get all Users
-    //         ViewBag.AllDishes = dbContext.Dishes.ToList();
+    {
     
-    //         ViewBag.MostRecent = dbContext.Dishes
-    // .OrderByDescending(u => u.CreatedAt)
-    // .Take(5)
-    // .ToList();
-
-	return View();
+          return View();
     }
+
+    [HttpGet("/dish/new")]
+public IActionResult New()
+{
+
+    return View("New");
+}
+
+    [HttpPost("/dish/new")]
+public IActionResult New(Dishes newDish)
+{
+    if (ModelState.IsValid == false)
+    {
+        return View("New");
+    }
+        dbContext.Dishes.Add(newDish);
+            // db doesn't update until we run save changes
+            // after SaveChanges, our newPost object now has it's PostId updated from db auto generated id
+        dbContext.SaveChanges();
+            // db doesn't update until we run save changes
+            // after SaveChanges, our newPost object now has it's PostId updated from db auto generated id
+        return RedirectToAction("Index");
+        }
+
+        [HttpGet("delete/{chefId}")]
+public IActionResult DeleteDish(int chefId)
+{
+    // Like Update, we will need to query for a single user from our Context object
+    Dishes RetrievedUser = dbContext.Dishes
+        .SingleOrDefault(user => user.ChefId == chefId);
+    
+    // Then pass the object we queried for to .Remove() on Users
+    dbContext.Dishes.Remove(RetrievedUser);
+    
+    // Finally, .SaveChanges() will remove the corresponding row representing this User from DB 
+    dbContext.SaveChanges();
+    // Other code
+    return View();
+}
+
     public IActionResult Privacy()
         {
             return View();
@@ -69,9 +102,5 @@ namespace CRUDelicious.Controllers
     
 //     // Other code
 //     return View();
-// }
-
-
-        
-       
+// } 
     }
