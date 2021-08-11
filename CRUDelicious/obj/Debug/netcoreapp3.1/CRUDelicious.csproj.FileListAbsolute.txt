@@ -57,3 +57,4 @@
 /Users/javanogden/Desktop/CodingDojo/cSharp/ASP.NETCore/CRUDelicious/CRUDelicious/obj/Debug/netcoreapp3.1/CRUDelicious.dll
 /Users/javanogden/Desktop/CodingDojo/cSharp/ASP.NETCore/CRUDelicious/CRUDelicious/obj/Debug/netcoreapp3.1/CRUDelicious.pdb
 /Users/javanogden/Desktop/CodingDojo/cSharp/ASP.NETCore/CRUDelicious/CRUDelicious/obj/Debug/netcoreapp3.1/CRUDelicious.genruntimeconfig.cache
+/Users/javanogden/Desktop/CodingDojo/cSharp/ASP.NETCore/CRUDelicious/CRUDelicious/obj/Debug/netcoreapp3.1/Razor/Views/DishForm/New.cshtml.g.cs

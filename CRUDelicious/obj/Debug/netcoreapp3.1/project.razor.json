@@ -14402,11 +14402,6 @@
   "RootNamespace": "CRUDelicious",
   "Documents": [
     {
-      "FilePath": "/Users/javanogden/Desktop/CodingDojo/cSharp/ASP.NETCore/CRUDelicious/CRUDelicious/Views/Home/New.cshtml",
-      "TargetPath": "Views\\Home\\New.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "/Users/javanogden/Desktop/CodingDojo/cSharp/ASP.NETCore/CRUDelicious/CRUDelicious/Views/Shared/_ValidationScriptsPartial.cshtml",
       "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "FileKind": "mvc"
@@ -14414,6 +14409,11 @@
     {
       "FilePath": "/Users/javanogden/Desktop/CodingDojo/cSharp/ASP.NETCore/CRUDelicious/CRUDelicious/Views/Home/Privacy.cshtml",
       "TargetPath": "Views\\Home\\Privacy.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/javanogden/Desktop/CodingDojo/cSharp/ASP.NETCore/CRUDelicious/CRUDelicious/Views/DishForm/New.cshtml",
+      "TargetPath": "Views\\DishForm\\New.cshtml",
       "FileKind": "mvc"
     },
     {

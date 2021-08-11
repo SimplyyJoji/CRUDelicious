@@ -6,6 +6,9 @@ namespace CRUDelicious.Models
     {
         [Key]
         public int ChefId { get; set; }
+        [Required]
+        [MinLength(1, ErrorMessage = "Must be more then 1 character")]
+        public string ChefName { get; set; }
         public string Name { get; set; }
         public int Tastiness { get; set; }
         public int Calories { get; set; }
