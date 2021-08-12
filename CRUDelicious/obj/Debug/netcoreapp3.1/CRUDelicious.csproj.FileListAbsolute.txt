@@ -58,5 +58,5 @@
 /Users/javanogden/Desktop/CodingDojo/cSharp/ASP.NETCore/CRUDelicious/CRUDelicious/obj/Debug/netcoreapp3.1/CRUDelicious.pdb
 /Users/javanogden/Desktop/CodingDojo/cSharp/ASP.NETCore/CRUDelicious/CRUDelicious/obj/Debug/netcoreapp3.1/CRUDelicious.genruntimeconfig.cache
 /Users/javanogden/Desktop/CodingDojo/cSharp/ASP.NETCore/CRUDelicious/CRUDelicious/obj/Debug/netcoreapp3.1/Razor/Views/Home/New.cshtml.g.cs
-/Users/javanogden/Desktop/CodingDojo/cSharp/ASP.NETCore/CRUDelicious/CRUDelicious/obj/Debug/netcoreapp3.1/Razor/Views/Home/EditDish.cshtml.g.cs
 /Users/javanogden/Desktop/CodingDojo/cSharp/ASP.NETCore/CRUDelicious/CRUDelicious/obj/Debug/netcoreapp3.1/Razor/Views/Home/OneDish.cshtml.g.cs
+/Users/javanogden/Desktop/CodingDojo/cSharp/ASP.NETCore/CRUDelicious/CRUDelicious/obj/Debug/netcoreapp3.1/Razor/Views/Home/Edit.cshtml.g.cs

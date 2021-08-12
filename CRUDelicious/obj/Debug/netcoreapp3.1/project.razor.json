@@ -14417,13 +14417,13 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/Users/javanogden/Desktop/CodingDojo/cSharp/ASP.NETCore/CRUDelicious/CRUDelicious/Views/Home/EditDish.cshtml",
-      "TargetPath": "Views\\Home\\EditDish.cshtml",
+      "FilePath": "/Users/javanogden/Desktop/CodingDojo/cSharp/ASP.NETCore/CRUDelicious/CRUDelicious/Views/Home/OneDish.cshtml",
+      "TargetPath": "Views\\Home\\OneDish.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/Users/javanogden/Desktop/CodingDojo/cSharp/ASP.NETCore/CRUDelicious/CRUDelicious/Views/Home/OneDish.cshtml",
-      "TargetPath": "Views\\Home\\OneDish.cshtml",
+      "FilePath": "/Users/javanogden/Desktop/CodingDojo/cSharp/ASP.NETCore/CRUDelicious/CRUDelicious/Views/Home/Edit.cshtml",
+      "TargetPath": "Views\\Home\\Edit.cshtml",
       "FileKind": "mvc"
     },
     {

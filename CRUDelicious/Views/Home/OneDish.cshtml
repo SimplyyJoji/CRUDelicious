@@ -1,5 +1,5 @@
 @model Dishes
-
+@using CRUDelicious.Models
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -11,7 +11,7 @@
     <div class="card-body">
       <p class="card-text">@Model.Discription</p>
       <small class="text-muted">Submitted on: @Model.CreatedAt</small>
-      <a href="/edit/{chefId}" class="btn btn-success">Edit</a>
-      <a href="/delete/{chefId}" class="btn btn-danger">Delete</a>
+      <a href="dishes/@Model.ChefId/edit" class="btn btn-success">Edit</a>
+      <a href="/delete/@Model.ChefId" class="btn btn-danger">Delete</a>
     </div>
   </div>

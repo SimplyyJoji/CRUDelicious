@@ -29,12 +29,16 @@ namespace CRUDelicious.Controllers
         List<Dishes> AllDishes = _context.Dishes.ToList();
             return View(AllDishes);  
     }
+        
+        
         [HttpGet("{chefId}")]
         public IActionResult OneDish(int ChefId)
     {
         Dishes oneDish = _context.Dishes.FirstOrDefault(id =>id.ChefId == ChefId);
-        return View(); 
+        return View(oneDish); 
     }
+
+
 
     //Create
     [HttpGet("/dish/new")]
@@ -60,21 +64,65 @@ public IActionResult New(Dishes newDish)
         return RedirectToAction("Index");
         }
 
+        //Update
+[HttpGet("dishes/{chefId}/edit")]
+public IActionResult Edit(int chefId)
+{
+    // We must first Query for a single User from our Context object to track changes.
+    Dishes newDish = _context.Dishes.FirstOrDefault(user => user.ChefId == chefId);
+    // Then we may modify properties of this tracked model object
+            if (newDish == null)
+            {
+                return RedirectToAction("Index");
+            }
+    
+    
+    // Finally, .SaveChanges() will update the DB with these new values
+    
+    // Other code
+    return View("Edit", newDish);
+} 
+
+    [HttpPost("/dishes/{chefId}/update")]
+    public IActionResult Update(int chefId, Dishes editedDish)
+        {
+            if (ModelState.IsValid == false)
+            {
+                editedDish.ChefId = chefId;
+                return View("Edit", editedDish);
+            }
+            Dishes newDish = _context.Dishes.FirstOrDefault(p => p.ChefId == chefId);
+
+            if (newDish == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            newDish.Name = editedDish.Name;
+            newDish.ChefName = editedDish.ChefName;
+            newDish.Tastiness = editedDish.Tastiness;
+            newDish.Calories = editedDish.Calories;
+            newDish.Discription = editedDish.Discription;
+            newDish.UpdatedAt = DateTime.Now;
+
+            return View("Edit", editedDish);
+        }
+
      //Delete
-        [HttpGet("delete/{chefId}")]
-public IActionResult DeleteDish(int chefId)
+    [HttpGet("delete/{chefId}")]
+public IActionResult Delete(int chefId)
 {
     // Like Update, we will need to query for a single user from our Context object
-    Dishes RetrievedUser = _context.Dishes
-        .SingleOrDefault(user => user.ChefId == chefId);
+    Dishes dish  = _context.Dishes
+        .SingleOrDefault(delete => delete.ChefId == chefId);
     
     // Then pass the object we queried for to .Remove() on Users
-    _context.Dishes.Remove(RetrievedUser);
+    _context.Dishes.Remove(dish);
     
     // Finally, .SaveChanges() will remove the corresponding row representing this User from DB 
     _context.SaveChanges();
     // Other code
-    return View();
+    return RedirectToAction("Index");
 }
 
 
@@ -97,27 +145,4 @@ public IActionResult DeleteDish(int chefId)
         }
 
 }
-
-// Inside HomeController
-// [HttpGet("update/{userId}")]
-// public IActionResult UpdateUser(int chefId)
-// {
-//     // We must first Query for a single User from our Context object to track changes.
-//     Dishes RetrievedUser = dbContext.Dishes
-//         .FirstOrDefault(user => user.ChefId == chefId);
-//     // Then we may modify properties of this tracked model object
-//     RetrievedUser.Name = "New Name";
-//     RetrievedUser.ChefName = "New Chef Name";
-//     RetrievedUser.Tastiness = 0;
-//     RetrievedUser.Calories = 0;
-//     RetrievedUser.Discription = "New Discription";
-//     RetrievedUser.UpdatedAt = DateTime.Now;
-//     RetrievedUser.CreatedAt = DateTime.Now;
-    
-//     // Finally, .SaveChanges() will update the DB with these new values
-//     dbContext.SaveChanges();
-    
-//     // Other code
-//     return View();
-// } 
     }
