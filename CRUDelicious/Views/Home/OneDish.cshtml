@@ -1,20 +1,17 @@
 @model Dishes
 
-
-
-<h2 class="text-center">@Model.DishName</h2>
-
-
+@{
+    ViewData["Title"] = "Home Page";
+}
 
   <div class="card shadow rounded mx-auto w-75 mb-3">
     <h4 class="card-title text-center bg-dark text-light py-2 rounded-top">
       @Model.Name
     </h4>
-
     <div class="card-body">
       <p class="card-text">@Model.Discription</p>
       <small class="text-muted">Submitted on: @Model.CreatedAt</small>
-      <a href="/edit" class="btn btn-success">Edit</a>
-      <a href="/delete" class="btn btn-danger">Delete</a>
+      <a href="/edit/{chefId}" class="btn btn-success">Edit</a>
+      <a href="/delete/{chefId}" class="btn btn-danger">Delete</a>
     </div>
   </div>

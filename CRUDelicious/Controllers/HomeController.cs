@@ -6,29 +6,37 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using CRUDelicious.Models;
+using CRUDelicious.Migrations;
 using Microsoft.EntityFrameworkCore;
+
 
 namespace CRUDelicious.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        // private readonly ILogger<HomeController> _logger;
 
-        private MyContext dbContext;
+        private MyContext _context;
 
         public HomeController(MyContext context)
         {
-            dbContext = context;
+            _context = context;
         }
-
-            [HttpGet("")]
-            
+    //Read
+        [HttpGet("")]
         public IActionResult Index()
     {
-    
-          return View();
+        List<Dishes> AllDishes = _context.Dishes.ToList();
+            return View(AllDishes);  
+    }
+        [HttpGet("{chefId}")]
+        public IActionResult OneDish(int ChefId)
+    {
+        Dishes oneDish = _context.Dishes.FirstOrDefault(id =>id.ChefId == ChefId);
+        return View(); 
     }
 
+    //Create
     [HttpGet("/dish/new")]
 public IActionResult New()
 {
@@ -43,30 +51,39 @@ public IActionResult New(Dishes newDish)
     {
         return View("New");
     }
-        dbContext.Dishes.Add(newDish);
+        _context.Dishes.Add(newDish);
             // db doesn't update until we run save changes
             // after SaveChanges, our newPost object now has it's PostId updated from db auto generated id
-        dbContext.SaveChanges();
+        _context.SaveChanges();
             // db doesn't update until we run save changes
             // after SaveChanges, our newPost object now has it's PostId updated from db auto generated id
         return RedirectToAction("Index");
         }
 
+     //Delete
         [HttpGet("delete/{chefId}")]
 public IActionResult DeleteDish(int chefId)
 {
     // Like Update, we will need to query for a single user from our Context object
-    Dishes RetrievedUser = dbContext.Dishes
+    Dishes RetrievedUser = _context.Dishes
         .SingleOrDefault(user => user.ChefId == chefId);
     
     // Then pass the object we queried for to .Remove() on Users
-    dbContext.Dishes.Remove(RetrievedUser);
+    _context.Dishes.Remove(RetrievedUser);
     
     // Finally, .SaveChanges() will remove the corresponding row representing this User from DB 
-    dbContext.SaveChanges();
+    _context.SaveChanges();
     // Other code
     return View();
 }
+
+
+
+
+
+
+
+
 
     public IActionResult Privacy()
         {

@@ -1,4 +1,6 @@
-﻿@model Dishes
+﻿@using CRUDelicious.Models
+@model List<Dishes>
+
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -6,5 +8,25 @@
 <div class="text-center">
     <h1 class="display-4">Welcome to CRUDelicious</h1>
     <p>Check out some recent dishes!</p>
+
+
     <a href="/dish/new">Add a Dish</a>
+    
+
+<h2 class="text-center">All Dishes</h2>
+
+@foreach (var dish in @Model)
+{
+<div class="card shadow rounded mx-auto w-75 mb-3">
+    <h4 class="card-title text-center bg-dark text-light py-2 rounded-top">
+    <a href="@dish.ChefId">@dish.Name</a>
+    </h4>
+
+    <div class="card-body">
+      <p class="card-text">@dish.ChefName</p>
+      <small class="text-muted">Submitted on: @dish.CreatedAt</small>
+      <a href="/edit/{chefId}" class="btn btn-success">Edit</a>
+      <a href="/delete/{chefId}" class="btn btn-danger">Delete</a>
+    </div>
 </div>
+}
