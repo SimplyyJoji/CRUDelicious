@@ -25,6 +25,7 @@ namespace CRUDelicious
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<MyContext>(options => options.UseMySql (Configuration["DBInfo:ConnectionString"]));
+            
             services.AddMvc(options => options.EnableEndpointRouting = false);
             // services.AddControllersWithViews();
         }
